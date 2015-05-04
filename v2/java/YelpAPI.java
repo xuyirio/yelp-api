@@ -27,7 +27,7 @@ public class YelpAPI {
 
   private static final String API_HOST = "api.yelp.com";
   private static final String DEFAULT_TERM = "dinner";
-  private static final String DEFAULT_LOCATION = "San Francisco, CA";
+  private static final String DEFAULT_LOCATION = "Sunnyvale, CA";
   private static final int SEARCH_LIMIT = 3;
   private static final String SEARCH_PATH = "/v2/search";
   private static final String BUSINESS_PATH = "/v2/business";
@@ -36,10 +36,10 @@ public class YelpAPI {
    * Update OAuth credentials below from the Yelp Developers API site:
    * http://www.yelp.com/developers/getting_started/api_access
    */
-  private static final String CONSUMER_KEY = "";
-  private static final String CONSUMER_SECRET = "";
-  private static final String TOKEN = "";
-  private static final String TOKEN_SECRET = "";
+  private static final String CONSUMER_KEY = "VS78ZVYa_fxtYPYEIiedBg";
+  private static final String CONSUMER_SECRET = "lp1DPIM49L-EvCm2QiN8usGQVPQ";
+  private static final String TOKEN = "8V5dln46vsmBFxChpk1fhm0HmhNqbfjB";
+  private static final String TOKEN_SECRET = "ro7KFwI0VKttPuq05_Lpzza1pYo";
 
   OAuthService service;
   Token accessToken;
@@ -138,7 +138,8 @@ public class YelpAPI {
 
     JSONArray businesses = (JSONArray) response.get("businesses");
     JSONObject firstBusiness = (JSONObject) businesses.get(0);
-    String firstBusinessID = firstBusiness.get("id").toString();
+    System.out.println(firstBusiness.toJSONString());
+/*    String firstBusinessID = firstBusiness.get("id").toString();
     System.out.println(String.format(
         "%s businesses found, querying business info for the top result \"%s\" ...",
         businesses.size(), firstBusinessID));
@@ -146,7 +147,7 @@ public class YelpAPI {
     // Select the first business and display business details
     String businessResponseJSON = yelpApi.searchByBusinessId(firstBusinessID.toString());
     System.out.println(String.format("Result for business \"%s\" found:", firstBusinessID));
-    System.out.println(businessResponseJSON);
+    System.out.println(businessResponseJSON);*/
   }
 
   /**
